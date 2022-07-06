@@ -31,6 +31,14 @@
         >source code!</a
     >
 </div>
+<button
+    on:click={() => {
+        current = tracks[Math.floor(Math.random() * tracks.length)]
+    }}
+>
+    Play a random song!</button
+>
+
 <main>
     {#each tracks as track}
         <div
@@ -104,5 +112,10 @@
     }
     .fill {
         flex: 1;
+    }
+    button {
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
     }
 </style>

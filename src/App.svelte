@@ -6,7 +6,12 @@
         .then((response) => response.json())
         .then((data) => {
             tracks = data
-                .filter((track) => track.card)
+                .filter(
+                    (track) =>
+                        track.card &&
+                        track.card.url &&
+                        track.card.url.includes("youtube.com"),
+                )
                 .map((track) => {
                     track.card.id = track.card.url.split("=")[1]
                     track.created_at = track.created_at.split("T")[0]
@@ -22,7 +27,7 @@
     Whipped up by
     <a href="https://chaos.social/@blinry">@blinry@chaos.social</a>
     in an hour. If you wanna improve this project, see the
-    <a href="https://github.com/blinry/pomodoro-jukebox" taret="_blank"
+    <a href="https://github.com/blinry/pomodoro-jukebox" target="_blank"
         >source code!</a
     >
 </div>
